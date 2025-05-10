@@ -1,11 +1,11 @@
 # BYU-Pathway Worldwide Online
-## WDD 330 - Web Frontend Development II
+## WDD 330 - Web Frontend Development II -  Team 07
 
 ### ⛺ SleepOutside Starter Code
 
  - This repository is the start of the SleepOutside web application project for WDD 330. The repository contains branches which are checkpoints for the team and individual assignments throughout the course.
-
- - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
+   This is the deploy of our Team Project:
+ - https://681ed403798edc00088985c0--jade-gingersnap-25952a.netlify.app/
 
 ### Prerequisites
 
