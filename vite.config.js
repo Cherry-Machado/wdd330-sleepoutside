@@ -5,10 +5,6 @@ export default defineConfig({
   root: "src/",
 
   build: {
-    command: "remix vite:build",
-    commandOrigin: "ui",
-    publish: "/opt/build/repo/dist/client",
-    publishOrigin: "ui",
     outDir: "../dist",
     rollupOptions: {
       input: {
