@@ -131,7 +131,135 @@ button {
   fill: gray;
 }
 
+#cartCount {
+  position: absolute;
+  top: 6px;
+  right: -7px;
+  background-color: #f9d73f;
+  color: #000;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  height: 20px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 /* End cart icon styles */
+
+/* Category icon styles */
+.category {
+  padding: 1rem;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.category--icon a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  background: linear-gradient(135deg, #c2cfe3 0%, #e4e8eb 100%);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  height: 180px;
+  margin-top: 1rem;
+}
+
+.category--icon a:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, #e8d3d3 0%, #f0f4f8 100%);
+}
+
+.category--icon a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.category--icon a:hover::before {
+  left: 100%;
+}
+
+.category--icon img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.category--icon a:hover img {
+  transform: scale(1.1);
+}
+
+.category--icon button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2d3748;
+  padding: 0px 16px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.category--icon button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #13a10e;
+  transition: width 0.3s ease;
+}
+
+.category--icon a:hover button::after {
+  width: 80%;
+}
+
+.category--icon a:hover button {
+  color: #13a10e;
+}
+
+#product-category {
+  font-size: 2.2rem;
+  font-variant: small-caps;
+}
 
 .mission {
   position: absolute;
