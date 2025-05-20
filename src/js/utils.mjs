@@ -1,3 +1,4 @@
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -38,3 +39,15 @@ export function renderListWithTemplate(template, parentElement, list, position =
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function cartCount() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const cartCounter = document.getElementById("cartCount");
+  if (cartItems.length != 0) {
+    cartCounter.innerHTML = cartItems.length;
+    cartCounter.classList.remove("hidden");
+  } else {
+    cartCounter.classList.add("hidden");
+  }
+}
+
