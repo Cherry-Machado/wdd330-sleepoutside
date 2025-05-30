@@ -1,4 +1,3 @@
-
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -23,21 +22,60 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-// get the product id from the query string
+// Query get url param
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
-  return product
+
+  return product;
 }
 
-export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
-  const htmlStrings = list.map(template);
-  // if clear is true we need to clear out the contents of the parent.
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+// Render a list of templates
+export function renderListWithTemplate(
+  templateFunction,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false,
+) {
+  const listElements = list.map(templateFunction);
+
+  // if clear is true clear DOM
+  clear && (parentElement.innerHtml = "");
+
+  parentElement.insertAdjacentHTML(position, listElements.join(""));
+}
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  callback && callback(data);
+}
+
+export async function loadTemplate(path) {
+  const response = await fetch(path);
+  const template = await response.text();
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+
+  cartCount();
+}
+
+export function priceTotal(itemsList, getPrice) {
+  let total = 0;
+  itemsList.forEach((item) => (total += getPrice(item)));
+
+  return `$ ${total.toFixed(2)}`;
 }
 
 export function cartCount() {
@@ -51,3 +89,26 @@ export function cartCount() {
   }
 }
 
+export function alertMessage(message, scroll = true, duration = 4000) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "span") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+
+  // left this here to show how you could remove the alert automatically after a certain amount of time.
+  setTimeout(function () {
+    main.removeChild(alert);
+  }, duration);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+}
