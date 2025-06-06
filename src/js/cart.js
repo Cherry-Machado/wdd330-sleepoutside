@@ -60,7 +60,7 @@ function cartItemTemplate(item) {
 document
   .querySelector("button.checkout")
   .addEventListener("click", () =>
-    window.location.replace("/checkout/index.html"),
+    window.location.replace("../checkout/index.html"),
   );
 
 renderCartContents();
