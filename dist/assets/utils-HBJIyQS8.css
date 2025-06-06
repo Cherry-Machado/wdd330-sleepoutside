@@ -3,7 +3,7 @@
   --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
-  --tertiary-color: #8a470c;
+  --tertiary-color: #a4b8c4;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
   --font-base: 18px;
@@ -11,11 +11,10 @@
   --large-font: 1.2em;
 }
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 body {
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
   color: var(--dark-grey);
@@ -26,10 +25,7 @@ img {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
-}
-p {
-  padding: 0.75rem;
+  padding: 0 10px;
 }
 .logo {
   line-height: 60px;
@@ -54,7 +50,7 @@ p {
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
-  bottom: -15px;
+  bottom: -10px;
   background-color: #fff;
 }
 .logo--square {
@@ -92,6 +88,62 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+.newsletter-signup {
+  padding: 2em 8em;
+  background-color: var(--light-grey);
+  text-align: center;
+}
+.newsletter-signup h2 {
+  font-size: var(--large-font);
+  margin-bottom: 1em;
+}
+.newsletter-signup form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5em;
+  align-items: center;
+}
+.newsletter-signup input[type="email"] {
+  padding: 0.5em;
+  font-size: var(--font-base);
+  border: 1px solid var(--dark-grey);
+  border-radius: 4px;
+  margin-right: 0.5em;
+}
+.newsletter-signup button {
+  padding: 0.5em;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 20px;
+}
+.newsletter-signup button:hover {
+  background-color: var(--dark-grey);
+}
+.category {
+  padding: 1rem;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+.category--icon {
+  text-align: center;
+}
+.category--icon a {
+  text-decoration: none;
+  color: #000;
+}
+.category img {
+  width: 90px;
+  height: 90px;
+}
+#product-category {
+  font-size: 2.2rem;
+  font-variant: small-caps;
+}
 .cart {
   padding-top: 1em;
   position: relative;
@@ -123,101 +175,9 @@ button {
   display: none;
   visibility: hidden;
 }
-.category {
-  padding: 1rem;
-  display: flex;
-  gap: 5rem;
-  justify-content: center;
-}
-.category--icon a {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  padding: 20px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  background: linear-gradient(135deg, #c2cfe3, #e4e8eb);
-  box-shadow:
-    0 4px 6px #0000000d,
-    0 1px 3px #0000001a;
-  width: 180px;
-  height: 180px;
-  margin-top: 1rem;
-}
-.category--icon a:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 10px 20px #0000001a,
-    0 6px 6px #0000000d;
-  background: linear-gradient(135deg, #e8d3d3, #f0f4f8);
-}
-.category--icon a:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-.category--icon a:hover:before {
-  left: 100%;
-}
-.category--icon img {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-.category--icon a:hover img {
-  transform: scale(1.1);
-}
-.category--icon button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-family:
-    Inter,
-    Segoe UI,
-    sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #2d3748;
-  padding: 0 16px;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.category--icon button:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
-  width: 0;
-  height: 2px;
-  background: #13a10e;
-  transition: width 0.3s ease;
-}
-.category--icon a:hover button:after {
-  width: 80%;
-}
-.category--icon a:hover button {
-  color: #13a10e;
-}
-#product-category {
-  font-size: 2.2rem;
-  font-variant: small-caps;
+.breadcrumb {
+  font-family: var(--font-base);
+  font-size: 14px;
 }
 .mission {
   position: absolute;
@@ -236,14 +196,14 @@ button {
   text-align: center;
 }
 .products {
-  margin-top: 2rem;
-  padding: 1rem;
+  padding: 0.5em;
 }
 .product-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
   list-style-type: none;
-  justify-content: center;
+  padding: 0;
 }
 .product-list a {
   text-decoration: none;
@@ -275,6 +235,17 @@ button {
 .product-detail img {
   width: 100%;
 }
+.product__color-list {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.product__color-list img {
+  width: 100%;
+}
+.product__color-list img:hover {
+  cursor: pointer;
+}
 .cart-card {
   display: grid;
   grid-template-columns: 25% auto 15%;
@@ -303,6 +274,70 @@ button {
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
+}
+.cart-card__delete {
+  grid-row: 1;
+  grid-column: 4;
+}
+.cart-card__delete:hover {
+  cursor: pointer;
+}
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  align-items: center;
+}
+.output-summary {
+  width: 100%;
+}
+.output-summary h3 {
+  text-align: center;
+}
+.checkout-form_data {
+  padding: 0.5rem;
+  width: 90%;
+}
+#order-summary {
+  border: 2px solid #f0a868;
+  margin: 15px auto;
+  width: 80%;
+  padding: 0 7%;
+}
+.form-div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+fieldset {
+  margin: 20px;
+  border-color: #f0a868;
+}
+.summary-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 1em;
+}
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+.alert > p {
+  margin: 0;
+}
+input {
+  font-size: 16px;
+}
+#order-summary h3 {
+  text-align: center;
+}
+legend {
+  font-weight: bolder;
 }
 @media screen and (min-width: 500px) {
   body {

@@ -1,4 +1,6 @@
-import { getLocalStorage } from "./utils.mjs";
+import ShoppingCart from "./ShoppingCart.mjs";
+import {loadHeaderFooter} from "./utils.mjs";
+
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
@@ -26,3 +28,13 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+=======
+const cart = new ShoppingCart("so-cart", ".product-list");
+
+loadHeaderFooter();
+window.addEventListener("DOMContentLoaded", () => {
+  cart.renderCartContents();
+});
+// cart.incdesQuantity();
+// cart.deleteCartContent();
+
