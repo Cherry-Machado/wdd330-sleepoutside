@@ -71,7 +71,7 @@ document
       await checkout.checkout(myForm);
       setLocalStorage("so-cart", []);
       removeAllAlerts();
-      window.location.href = "../checkout/success.html";
+      window.location.href = "/checkout/success.html";
     } catch (error) {
       alertMessage("Error when processing the order: " + error.message, true);
     }

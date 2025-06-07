@@ -32,12 +32,23 @@ export default class CheckoutProcess {
     // Display the item subtotal in the output section (e.g., '#subtotal')
     document.querySelector(this.outputSelector.subtotal).innerText =
       this.itemTotal.toFixed(2);
+
+    /*// Validar si el elemento existe antes de actualizarlo
+   
+      const subtotalElement = document.querySelector(
+      this.outputSelector.subtotal,
+    );
+    if (subtotalElement) {
+      subtotalElement.innerText = this.itemTotal.toFixed(2);
+    } else {
+      alertMessage("Elemento #subtotal no encontrado en el DOM", true);
+    }*/
   }
 
   // Calculate shipping, tax, and total, and display them after ZIP code is entered
   calculateOrderTotal() {
     if (this.list.length === 0) {
-      alertMessage("The cart is empty", true);
+      alertMessage("El carrito está vacío", true);
       return;
     }
     this.shipping = 10 + (this.list.length - 1) * 2; // $10 for the first item, $2 for each additional item
@@ -106,6 +117,8 @@ export default class CheckoutProcess {
       shipping: this.shipping,
       tax: this.tax.toFixed(2),
     };
+
+    //console.log("OrderData:", orderData); To debug
 
     //Send the order data to the server
     const externalServices = new ExternalServices();
