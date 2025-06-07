@@ -5,7 +5,7 @@
 
  - This repository is the start of the SleepOutside web application project for WDD 330. The repository contains branches which are checkpoints for the team and individual assignments throughout the course.
    This is the deploy of our Team Project:
- - https://jade-gingersnap-25952a.netlify.app/
+ - https://wdd330-sleepoutside07.netlify.app/
 
 ### Prerequisites
 
