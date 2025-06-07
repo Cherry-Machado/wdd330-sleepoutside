@@ -1,4 +1,4 @@
-import{c as s,l as o,b as i}from"./utils-CpYJUKXc.js";import{E as n}from"./ExternalServices-D7X6Feru.js";function d(t){return`<li class="product-card">
+import{c as s,l as o,b as i}from"./utils-CpYJUKXc.js";import{E as n}from"./ExternalServices-wtTIjjcE.js";function d(t){return`<li class="product-card">
                 <a href="/product_pages/?product=${t.Id}">
                 <img src="${t.Images.PrimaryLarge}" alt="Image of ${t.Name}">
                 <h2 class="card__brand">${t.Brand.Name}</h2>
