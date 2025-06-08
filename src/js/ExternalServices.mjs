@@ -1,4 +1,4 @@
-const baseURL = require("dotenv").config().parsed.VITE_SERVER_URL //|| "https://wdd330-backend.onrender.com";
+const baseURL = require("dotenv").config().parsed.VITE_SERVER_URL || "https://wdd330-backend.onrender.com";
 
 async function convertToJson(res) {
   const response = await res.json();
