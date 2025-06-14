@@ -1,5 +1,5 @@
-import { r as s, l as o, a as i } from "./utils-DQjMQEyP.js";
-import { E as n } from "./ExternalServices-C6hio2pZ.js";
+import { r as s, l as o, g as i } from "./utils-zCIKEsvN.js";
+import { E as n } from "./ExternalServices-zH3DKnea.js";
 function d(t) {
   return `<li class="product-card">
                 <a href="/product_pages/?product=${t.Id}">
